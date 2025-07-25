@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação - Infinity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #00ff87;
+            --dark-bg: #1a1c1e;
+            --light-text: #DCDEE1;
+            --white-text: #FFFFFF;
+        }
+        body {
+            font-family: 'Poppins', sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;
+            background-image: url('https://cdn.discordapp.com/attachments/1398298075134431324/1398406540486250588/leblanck_store_230.psd.jpg?ex=68853f14&is=6883ed94&hm=cca85c52d5e7a125f0cfbc40ccdfb11ca5cce029a9e9942ae85aefa939499d84&');
+            background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;
+        }
+        body::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;
+        }
+        .verification-container {
+            position: relative; z-index: 2; background: rgba(26, 28, 30, 0.75); backdrop-filter: blur(15px) saturate(180%); -webkit-backdrop-filter: blur(15px) saturate(180%);
+            padding: 40px; border-radius: 12px; border: 1px solid rgba(0, 255, 135, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            text-align: center; max-width: 480px; width: 90%; animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .logo {
+            width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--brand-green); object-fit: cover; box-shadow: 0 0 15px rgba(0, 255, 135, 0.5);
+        }
+        h1 { color: var(--white-text); font-weight: 700; font-size: 2.2em; margin: 0 0 10px; }
+        p.subtitle { color: var(--light-text); font-size: 1.1em; margin-bottom: 30px; line-height: 1.6; }
+        .login-button {
+            display: flex; align-items: center; justify-content: center; gap: 12px; background-color: var(--brand-green); color: var(--dark-bg);
+            padding: 15px 30px; text-decoration: none; border-radius: 8px; font-size: 1.2em; font-weight: 700;
+            transition: all 0.3s ease; border: none; cursor: pointer; animation: pulse-glow 2.5s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 255, 135, 0.4), 0 0 20px rgba(0, 255, 135, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 255, 135, 0.7), 0 0 50px rgba(0, 255, 135, 0.5); }
+        }
+        .login-button:hover { background-color: #00e67a; transform: scale(1.05); }
+        .promo-box {
+            margin-top: 30px; padding: 15px; background: rgba(0, 0, 0, 0.3); border-radius: 8px; border-left: 3px solid var(--brand-green);
+            text-align: left; font-size: 0.9em; color: var(--light-text);
+        }
+        .promo-box strong {
+            color: var(--brand-green); font-weight: 600; display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 1.1em;
+        }
+        .footer-link {
+            display: block; margin-top: 20px; color: var(--light-text); text-decoration: none; font-size: 0.9em; transition: color 0.3s ease;
+        }
+        .footer-link:hover { color: var(--white-text); }
+        .loading-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8);
+            z-index: 10; display: none; flex-direction: column; justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .spinner {
+            width: 60px; height: 60px; border: 5px solid rgba(0, 255, 135, 0.3);
+            border-top-color: var(--brand-green); border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        .loading-overlay p {
+            color: var(--white-text); font-size: 1.2em; margin-top: 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingAnimation">
+        <div class="spinner"></div>
+        <p>Verificando...</p>
+    </div>
+
+    <div class="verification-container">
+        <img src="https://media.discordapp.net/attachments/1395854003962908692/1397062732343414794/Logo.psd.jpg?ex=6884f8cf&is=6883a74f&hm=c88351740ad2af47b323d071bf92b5cb5f841aa7df75cd402fc1ed26298f7abf&=&format=webp&width=804&height=804" alt="Logo da Infinity" class="logo">
+        <h1>Verificação Infinity</h1>
+        <p class="subtitle">Para ter acesso completo à nossa comunidade, por favor, verifique sua conta.</p>
+        
+        <a href="/login" class="login-button" id="loginButton">
+            Verificar com Discord
+        </a>
+
+        <div class="promo-box">
+            <p><strong>Ganhe Dinheiro Convidando!</strong></p>
+            <p>Convide amigos e receba R$1,00 por cada um que entrar (limite de 10). É OBRIGATÓRIO ter o link da Infinity na sua bio para participar.</p>
+        </div>
+        
+        <a href="https://infinitystorer.mginex.io/" target="_blank" class="footer-link">Visite nossa loja: infinitystorer.mginex.io</a>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('loadingAnimation').style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
